@@ -39,8 +39,8 @@ function IndexPopup() {
   };
 
   const getLocation = async () => {
-    const request = await fetch(`https://ipinfo.io/${ip}?token=${token}`);
-    const jsonResponse = await request.json();
+    const response = await axios.get(`https://ipinfo.io/${ip}?token=${token}`);
+    const jsonResponse = response.data;
     setLocationData(jsonResponse);
     const ctr = new Intl.DisplayNames(["en"], {
       type: "region",
